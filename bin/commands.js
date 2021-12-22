@@ -11,11 +11,11 @@ exports.enter = function(msg, channelName) {
     //filter out all channels that aren't voice or stage
     const voiceChannel = msg.guild.channels.cache
                             .filter(c => c.type === "voice" || c.type === "stage")
-                            .find(channel => channel.name.toLowerCase() === channelName);
+                            .find(channel => channel.id.toLowerCase() === channelName);
     
     //if there is no voice channel at all or the channel is not voice or stage
     if (!voiceChannel || (voiceChannel.type !== 'voice' && voiceChannel.type !== 'stage'))
-        return msg.reply(`The channel #${channelName} doesn't exist or isn't a voice channel.`);
+        return msg.reply(`Channel ID ${channelName} doesn't exist or isn't a voice channel.`);
     
     console.log(`Sliding into ${voiceChannel.name} ...`);
     voiceChannel.join()

@@ -1,3 +1,17 @@
+rec!enter <channel_id> - joins channel and starts recording
+rec!exit - stops recording and leaves channel
+
+recordings are saved weird. they are individual pcm files that need to be merged into 1 and then converted to .mp3
+to merge files;
+node /bin/merge.js
+
+to convert to mp3
+ffmpeg -f s16le -ar 48000 -ac 2 -i merge.pcm FILENAME.mp3
+
+
+
+
+
 # Discord Voice Recorder
 
 A [Discord.js](https://discord.js.org/#/) script which can record voice calls. Summon the bot to a voice channel, and voilà! the audio is piped right into your local machine. Jump to [Installation & Usage](https://github.com/chebro/discord-voice-recorder#installation-and-usage) to get started.
